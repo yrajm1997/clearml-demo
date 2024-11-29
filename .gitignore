@@ -162,3 +162,4 @@ cython_debug/
 #.idea/
 
 logs/
+mnist_model_checkpoint.keras
