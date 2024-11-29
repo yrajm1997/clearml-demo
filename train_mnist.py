@@ -1,21 +1,21 @@
 import tensorflow as tf
 
-# from clearml import Task
+from clearml import Task
 
-# task = Task.init(project_name='MNIST_project',
-# task_name='training_task_1')
+task = Task.init(project_name='MNIST_project',
+                 task_name='training_task_2')
 
 
 parameters = {
-    'epochs': 3, 
-    'neurons': 128,
-    'hidden_layers': 2,
+    'epochs': 3,
+    'neurons': 128,         # 128, 110
+    'hidden_layers': 2,     # 2, 1
     'activation': 'relu',
     'optimizer': 'adam',
-    'dropout_rate': 0.2
+    'dropout_rate': 0.2     # 0.2, 0.3
 }
 
-# task.connect(parameters)
+task.connect(parameters)
 
 # Load data
 from tensorflow.keras.datasets import mnist
@@ -60,4 +60,4 @@ loss, acc = model.evaluate(x_test, y_test, verbose=2)
 
 print(f"Accuracy: {acc} Loss: {loss}")
 
-# task.get_logger.repost_scaler(...)
+# task.get_logger.report_scaler(...)
