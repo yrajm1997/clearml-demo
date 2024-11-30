@@ -56,7 +56,7 @@ model.fit(x_train, y_train,
           callbacks = callbacks_list
           )
 
-loss, acc = model.evaluate(x_test, y_test, verbose=2)
+loss, acc = model.evaluate(x_test, y_test)
 
 print(f"Accuracy: {acc} Loss: {loss}")
 
