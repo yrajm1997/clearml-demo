@@ -1,3 +1,5 @@
+## NOTE: Make sure you have a queue named 'services' with atleast one worker serving it, before executing this file.
+
 from clearml import PipelineDecorator
 import tensorflow as tf
 from clearml import Task, TaskTypes
@@ -77,8 +79,9 @@ def executing_pipeline():
 
 if __name__ == "__main__":
 
-    # PipelineDecorator.run_locally()          # to run it locally
+    # PipelineDecorator.run_locally()          # to run it locally (Pipeline job as well as steps, both will run locally)
+    # OR
+    PipelineDecorator.set_default_execution_queue('default')      # this will run the Pipeline job in 'services' queue and the steps in 'default' queue
 
-    PipelineDecorator.set_default_execution_queue('default')
     executing_pipeline()
     print("Process completed")
